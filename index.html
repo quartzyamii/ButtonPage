@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Furon Flow</title>
+
+    <!-- Google Fonts - Encode Sans Semi Expanded -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      /* Global */
+      * {
+        font-family: "Encode Sans Semi Expanded", sans-serif;
+      }
+
+      /* Layout */
+      .tablet-optimized {
+        min-height: 100vh;
+        width: 100vw;
+        max-width: 1200px;
+        aspect-ratio: 3 / 5; /* 1200:2000 (portrait) */
+      }
+
+      .bg-main {
+        background-image: url("./image/BackgroundImagefull.png");
+        background-size: cover;
+        background-position: 45% center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+
+      .portrait-layout {
+        padding-top: 10vh;
+        padding-bottom: 15vh;
+      }
+
+      /* Typography (base: 600x1000) */
+      .hi-furon {
+        font-size: 18pt;
+        font-weight: 100; /* ExtraLight */
+      }
+
+      .furon-flow {
+        font-size: 60pt;
+        font-weight: 400; /* Regular */
+      }
+
+      .button-text {
+        font-size: 28pt;
+        font-weight: 200; /* Light */
+      }
+
+      .explain-text {
+        position: absolute;
+        bottom: 10vh; /* 10% from bottom */
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 18pt;
+        font-weight: 100;
+      }
+
+      /* Buttons */
+      .button {
+        width: 300px; /* x2 at >=1000px */
+        height: 70px; /* x2 at >=1000px */
+        font-family: "Encode Sans Semi Expanded", sans-serif;
+      }
+
+      button {
+        font-family: "Encode Sans Semi Expanded", sans-serif !important;
+      }
+
+      /* Tablet-only type helpers */
+      @media (min-width: 768px) and (max-height: 2048px) {
+        .tablet-text-xl {
+          font-size: 2rem;
+          font-family: "Encode Sans Semi Expanded", sans-serif;
+        }
+        .tablet-text-8xl {
+          font-size: 8rem;
+          font-family: "Encode Sans Semi Expanded", sans-serif;
+        }
+      }
+
+      /* 1200×2000 (2x) */
+      @media (min-width: 1000px) {
+        .button {
+          width: 600px;
+          height: 140px;
+        }
+
+        .hi-furon {
+          font-size: 36pt;
+          font-weight: 100; /* ExtraLight */
+        }
+
+        .furon-flow {
+          font-size: 120pt;
+          font-weight: 300; /* Light */
+        }
+
+        .button-text {
+          font-size: 48pt;
+          font-weight: 200; /* Light */
+        }
+
+        .explain-text {
+          bottom: 8vh; /* a bit higher on tall screens */
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 36pt;
+          font-weight: 100;
+        }
+
+        .button-container {
+          gap: 2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="overflow-hidden">
+    <!-- Main container (portrait tablet optimized) -->
+    <div
+      class="tablet-optimized bg-main flex flex-col items-center justify-center portrait-layout mx-auto"
+    >
+      <!-- Hi furon -->
+      <div class="text-white hi-furon mb-0">Hi furon</div>
+
+      <!-- Furon Flow -->
+      <div class="text-white furon-flow mb-24 text-center leading-tight">
+        Furon Flow
+      </div>
+
+      <!-- 4 buttons (vertical) -->
+      <div class="flex flex-col space-y-12 button-container">
+        <button
+          class="button button-text bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white rounded-full border border-white border-opacity-30 transition-all duration-300 hover:scale-105 flex items-center justify-center"
+        >
+          Listening
+        </button>
+
+        <button
+          class="button button-text bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white rounded-full border border-white border-opacity-30 transition-all duration-300 hover:scale-105 flex items-center justify-center"
+        >
+          Analyzing
+        </button>
+
+        <button
+          class="button button-text bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white rounded-full border border-white border-opacity-30 transition-all duration-300 hover:scale-105 flex items-center justify-center"
+        >
+          Answering
+        </button>
+
+        <button
+          class="button button-text bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white rounded-full border border-white border-opacity-30 transition-all duration-300 hover:scale-105 flex items-center justify-center"
+        >
+          Outro
+        </button>
+      </div>
+
+      <!-- Helper text -->
+      <div class="text-white explain-text text-center">버튼을 눌러보세요</div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+  </body>
+</html>
