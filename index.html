@@ -31,7 +31,7 @@
       }
 
       .bg-main {
-        background-image: url("./image/BackgroundImagefull.png");
+        background-image: url("./image/Background2.png");
         background-size: cover;
         background-position: 45% center;
         background-repeat: no-repeat;
@@ -51,7 +51,7 @@
 
       .furon-flow {
         font-size: 60pt;
-        font-weight: 400; /* Regular */
+        font-weight: 500; /* Regular */
       }
 
       .button-text {
@@ -73,6 +73,27 @@
         width: 300px; /* x2 at >=1000px */
         height: 70px; /* x2 at >=1000px */
         font-family: "Encode Sans Semi Expanded", sans-serif;
+        
+        /* 유리 왜곡 효과 추가 */
+        backdrop-filter: blur(30px) saturate(180%) brightness(1.05);
+        -webkit-backdrop-filter: blur(30px) saturate(180%) brightness(1.05);
+        
+        /* 유리 질감 그림자 */
+        box-shadow: 
+          0 8px 32px rgba(0, 0, 0, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.4),
+          inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+      }
+
+      /* 호버 시 왜곡 강화 */
+      .button:hover {
+        backdrop-filter: blur(20px) saturate(120%) brightness(1.1) hue-rotate(5deg);
+        -webkit-backdrop-filter: blur(20px) saturate(120%) brightness(1.1) hue-rotate(5deg);
+
+        box-shadow:
+          0 12px 40px rgba(0, 0, 0, 0.15),
+          inset 0 2px 0 rgba(255, 255, 255, 0.5),
+          inset 0 -2px 0 rgba(255, 255, 255, 0.2);
       }
 
       button {
@@ -93,7 +114,7 @@
 
         .furon-flow {
           font-size: 120pt;
-          font-weight: 400; /* Light */
+          font-weight: 00; /* Light */
           
         }
 
@@ -154,7 +175,7 @@
         <button
           class="button button-text bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white rounded-full border border-white border-opacity-30 transition-all duration-300 hover:scale-105 flex items-center justify-center"
         >
-          Outro
+          Arriving
         </button>
       </div>
 
