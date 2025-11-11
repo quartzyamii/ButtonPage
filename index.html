@@ -79,18 +79,6 @@
         font-family: "Encode Sans Semi Expanded", sans-serif !important;
       }
 
-      /* Tablet-only type helpers */
-      @media (min-width: 768px) and (max-height: 2048px) {
-        .tablet-text-xl {
-          font-size: 2rem;
-          font-family: "Encode Sans Semi Expanded", sans-serif;
-        }
-        .tablet-text-8xl {
-          font-size: 8rem;
-          font-family: "Encode Sans Semi Expanded", sans-serif;
-        }
-      }
-
       /* 1200×2000 (2x) */
       @media (min-width: 1000px) {
         .button {
@@ -105,7 +93,8 @@
 
         .furon-flow {
           font-size: 120pt;
-          font-weight: 300; /* Light */
+          font-weight: 400; /* Light */
+          
         }
 
         .button-text {
@@ -122,8 +111,9 @@
         }
 
         .button-container {
-          gap: 2rem;
+          gap: 3rem;
         }
+
       }
     </style>
   </head>
@@ -137,7 +127,7 @@
       <div class="text-white hi-furon mb-0">Hi furon</div>
 
       <!-- Furon Flow -->
-      <div class="text-white furon-flow mb-24 text-center leading-tight">
+      <div class="text-white furon-flow mb-24 lg:mb-48 text-center leading-tight">
         Furon Flow
       </div>
 
