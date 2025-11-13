@@ -50,7 +50,7 @@
       }
 
       .furon-flow {
-        font-size: 60pt;
+        font-size: 43pt;
         font-weight: 500; /* Regular */
       }
 
@@ -72,11 +72,10 @@
       .button {
         width: 300px; /* x2 at >=1000px */
         height: 70px; /* x2 at >=1000px */
-        font-family: "Encode Sans Semi Expanded", sans-serif;
         
-        /* 유리 왜곡 효과 추가 */
-        backdrop-filter: blur(30px) saturate(180%) brightness(1.05);
-        -webkit-backdrop-filter: blur(30px) saturate(180%) brightness(1.05);
+        /* 유리 질감만 (Saturation 없음) */
+        backdrop-filter: blur(30px) brightness(1.05);
+        -webkit-backdrop-filter: blur(30px) brightness(1.05);
         
         /* 유리 질감 그림자 */
         box-shadow: 
@@ -87,8 +86,8 @@
 
       /* 호버 시 왜곡 강화 */
       .button:hover {
-        backdrop-filter: blur(20px) saturate(120%) brightness(1.1) hue-rotate(5deg);
-        -webkit-backdrop-filter: blur(20px) saturate(120%) brightness(1.1) hue-rotate(5deg);
+        backdrop-filter: blur(35px) saturate(150%) brightness(1.1) hue-rotate(5deg);
+        -webkit-backdrop-filter: blur(35px) saturate(150%) brightness(1.1) hue-rotate(5deg);
 
         box-shadow:
           0 12px 40px rgba(0, 0, 0, 0.15),
@@ -96,9 +95,7 @@
           inset 0 -2px 0 rgba(255, 255, 255, 0.2);
       }
 
-      button {
-        font-family: "Encode Sans Semi Expanded", sans-serif !important;
-      }
+
 
       /* 1200×2000 (2x) */
       @media (min-width: 1000px) {
@@ -113,8 +110,8 @@
         }
 
         .furon-flow {
-          font-size: 120pt;
-          font-weight: 00; /* Light */
+          font-size: 86pt;
+          font-weight: 500; /* Light */
           
         }
 
@@ -136,6 +133,35 @@
         }
 
       }
+
+      /* 버튼 공통 스타일 - Tailwind 클래스들을 CSS로 통합 (효과 동일) */
+      .btn-common {
+        /* bg-white bg-opacity-20 */
+        background-color: rgba(255, 255, 255, 0.2);
+        
+        /* text-white */
+        color: white;
+        
+        /* rounded-full */
+        border-radius: 9999px;
+        
+        /* border border-white border-opacity-30 */
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        
+        /* transition-all duration-300 */
+        transition: all 0.3s ease;
+        
+        /* flex items-center justify-center */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* hover:bg-opacity-30 hover:scale-105 */
+      .btn-common:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
+      }
     </style>
   </head>
 
@@ -145,36 +171,28 @@
       class="tablet-optimized bg-main flex flex-col items-center justify-center portrait-layout mx-auto"
     >
       <!-- Hi furon -->
-      <div class="text-white hi-furon mb-0">Hi furon</div>
+      <div class="text-white hi-furon mb-4"> Welcome to this moment </div>
 
       <!-- Furon Flow -->
       <div class="text-white furon-flow mb-24 lg:mb-48 text-center leading-tight">
-        Furon Flow
+        Beyond The Flow
       </div>
 
       <!-- 4 buttons (vertical) -->
       <div class="flex flex-col space-y-12 button-container">
-        <button
-          class="button button-text bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white rounded-full border border-white border-opacity-30 transition-all duration-300 hover:scale-105 flex items-center justify-center"
-        >
+        <button class="button button-text btn-common">
           Listening
         </button>
 
-        <button
-          class="button button-text bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white rounded-full border border-white border-opacity-30 transition-all duration-300 hover:scale-105 flex items-center justify-center"
-        >
+        <button class="button button-text btn-common">
           Analyzing
         </button>
 
-        <button
-          class="button button-text bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white rounded-full border border-white border-opacity-30 transition-all duration-300 hover:scale-105 flex items-center justify-center"
-        >
+        <button class="button button-text btn-common">
           Answering
         </button>
 
-        <button
-          class="button button-text bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white rounded-full border border-white border-opacity-30 transition-all duration-300 hover:scale-105 flex items-center justify-center"
-        >
+        <button class="button button-text btn-common">
           Arriving
         </button>
       </div>
