@@ -95,6 +95,15 @@
           inset 0 -2px 0 rgba(255, 255, 255, 0.2);
       }
 
+      /* 버튼 컨테이너 위치 고정 - index.html과 동일 */
+      .button-container {
+        position: absolute;
+        top: 45vh;
+        left: 50%;
+        transform: translateX(-50%);
+        gap: 3rem; /* 기본 gap 설정 */
+      }
+
       /* 1200×2000 반응형 */
       @media (min-width: 1000px) {
         .button {
@@ -104,10 +113,12 @@
 
         .hi-furon {
           font-size: 36pt;
+          top: 12vh; /* 큰 화면에서 위치 조정 */
         }
 
         .furon-flow {
           font-size: 86pt;
+          top: 18vh; /* 큰 화면에서 위치 조정 */
         }
 
         .button-text {
@@ -116,6 +127,7 @@
 
         .button-container {
           gap: 3rem;
+          top: 42vh; /* 큰 화면에서 위치 조정 */
         }
       }
 
@@ -184,7 +196,7 @@
         // 빠른 페이지 전환
         setTimeout(() => {
           window.location.href = "index.html";
-        }, 500); // 400ms → 200ms로 단축
+        }, 200); // index.html과 동일한 200ms
       }
 
 

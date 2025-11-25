@@ -71,7 +71,7 @@
       /* Buttons */
       .button {
         width: 300px; /* x2 at >=1000px */
-        height: 70px; /* x2 at >=1000px */
+        height: 65px; /* x2 at >=1000px */
         
         /* 유리 질감만 (Saturation 없음) */
         backdrop-filter: blur(5px) brightness(1.05);
@@ -101,7 +101,7 @@
       @media (min-width: 1000px) {
         .button {
           width: 600px;
-          height: 140px;
+          height: 130px;
         }
 
         .hi-furon {
@@ -116,7 +116,7 @@
         }
 
         .button-text {
-          font-size: 48pt;
+          font-size: 44pt;
           font-weight: 200; /* Light */
         }
 
@@ -162,6 +162,12 @@
         background-color: rgba(255, 255, 255, 0.15);
         transform: scale(1.05);
       }
+
+      /* "처음으로" 버튼 - btn-common과 동일하되 폰트 두께만 다름 */
+      .btn-home {
+        font-weight: 400 !important; /* btn-common은 그대로, 폰트 두께만 SemiBold */
+      }
+
     </style>
   </head>
 
@@ -174,12 +180,16 @@
       <div class="text-white hi-furon mb-4"> Welcome to this moment </div>
 
       <!-- Furon Flow -->
-      <div class="text-white furon-flow mb-24 lg:mb-48 text-center leading-tight">
+      <div class="text-white furon-flow mb-24 lg:mb-36 text-center leading-tight">
         Beyond The Flow
       </div>
 
       <!-- 4 buttons (vertical) -->
-      <div class="flex flex-col space-y-12 button-container">
+      <div class="flex flex-col space-y-10 button-container">
+        <button class="button button-text btn-common btn-home">
+          처음으로
+        </button>
+
         <button class="button button-text btn-common">
           Listening
         </button>
@@ -196,15 +206,15 @@
           Arriving
         </button>
 
-        <button class="button button-text btn-common" onclick="goToWelcome()">
-          처음으로 돌아가기
-        </button>
+        <!-- <button class="button button-text btn-common btn-home" onclick="goToWelcome()">
+          돌아가기
+        </button> -->
       </div>
 
       <!-- Helper text -->
       <div class="text-white explain-text text-center">버튼을 눌러보세요</div>
 
-    <script>
+    <!-- <script>
       // welcome.html로 돌아가는 함수 - 최적화된 페이지 전환
       function goToWelcome() {
         console.log("🏠 처음으로 돌아가기 클릭");
@@ -217,7 +227,7 @@
           window.location.href = "welcome.html";
         }, 200); // 애니메이션 완료 후 전환
       }
-    </script>
+    </script> -->
     </div>
 
     <!-- Scripts -->
