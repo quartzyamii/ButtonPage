@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Furon Flow</title>
+    <title>Beyond The Flow - Welcome</title>
 
     <!-- Google Fonts - Encode Sans Semi Expanded -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,12 +22,12 @@
         font-family: "Encode Sans Semi Expanded", sans-serif;
       }
 
-      /* Layout */
+      /* Layout - 동일한 스타일 */
       .tablet-optimized {
         min-height: 100vh;
         width: 100vw;
         max-width: 1200px;
-        aspect-ratio: 3 / 5; /* 1200:2000 (portrait) */
+        aspect-ratio: 3 / 5;
       }
 
       .bg-main {
@@ -35,7 +35,6 @@
         background-size: cover;
         background-position: 45% center;
         background-repeat: no-repeat;
-        background-attachment: fixed;
       }
 
       .portrait-layout {
@@ -43,48 +42,49 @@
         padding-bottom: 15vh;
       }
 
-      /* Typography (base: 600x1000) */
+      /* Typography - index.html과 동일한 위치 */
       .hi-furon {
         font-size: 18pt;
-        font-weight: 100; /* ExtraLight */
+        font-weight: 100;
+        position: absolute;
+        top: 15vh;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
       }
 
       .furon-flow {
         font-size: 43pt;
-        font-weight: 500; /* Regular */
+        font-weight: 500;
+        position: absolute;
+        top: 22vh;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        line-height: 1.1;
       }
 
       .button-text {
         font-size: 28pt;
-        font-weight: 200; /* Light */
+        font-weight: 200;
       }
 
-      .explain-text {
-        position: absolute;
-        bottom: 10vh; /* 10% from bottom */
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 18pt;
-        font-weight: 100;
-      }
-
-      /* Buttons */
+      /* Buttons - 동일한 유리 질감 */
       .button {
-        width: 300px; /* x2 at >=1000px */
-        height: 70px; /* x2 at >=1000px */
+        width: 300px;
+        height: 70px;
         
-        /* 유리 질감만 (Saturation 없음) */
         backdrop-filter: blur(5px) brightness(1.05);
         -webkit-backdrop-filter: blur(5px) brightness(1.05);
         
-        /* 유리 질감 그림자 */
         box-shadow: 
           0 8px 32px rgba(0, 0, 0, 0.1),
           inset 0 1px 0 rgba(255, 255, 255, 0.4),
           inset 0 -1px 0 rgba(255, 255, 255, 0.1);
       }
 
-      /* 호버 시 왜곡 강화 */
       .button:hover {
         backdrop-filter: blur(20px) saturate(130%) brightness(1.1) hue-rotate(5deg);
         -webkit-backdrop-filter: blur(20px) saturate(130%) brightness(1.1) hue-rotate(5deg);
@@ -95,9 +95,7 @@
           inset 0 -2px 0 rgba(255, 255, 255, 0.2);
       }
 
-
-
-      /* 1200×2000 (2x) */
+      /* 1200×2000 반응형 */
       @media (min-width: 1000px) {
         .button {
           width: 600px;
@@ -106,121 +104,90 @@
 
         .hi-furon {
           font-size: 36pt;
-          font-weight: 100; /* ExtraLight */
         }
 
         .furon-flow {
           font-size: 86pt;
-          font-weight: 500; /* Light */
-          
         }
 
         .button-text {
           font-size: 48pt;
-          font-weight: 200; /* Light */
-        }
-
-        .explain-text {
-          bottom: 8vh; /* a bit higher on tall screens */
-          left: 50%;
-          transform: translateX(-50%);
-          font-size: 36pt;
-          font-weight: 100;
         }
 
         .button-container {
           gap: 3rem;
         }
-
       }
 
-      /* 버튼 공통 스타일 - 진짜 유리 질감 */
+      /* 버튼 공통 스타일 - 성능 최적화 */
       .btn-common {
-        /* 매우 투명한 유리 배경 */
         background-color: rgba(255, 255, 255, 0.1);
-        
-        /* text-white */
         color: white;
-        
-        /* rounded-full */
         border-radius: 9999px;
-        
-        /* 은은한 유리 테두리 */
         border: 1px solid rgba(255, 255, 255, 0.2);
         
-        /* transition-all duration-300 */
-        transition: all 0.3s ease;
+        /* 성능 최적화 */
+        transform: translateZ(0); /* GPU 가속 활성화 */
+        will-change: transform, background-color; /* 브라우저 최적화 힌트 */
+        transition: all 0.2s ease-out; /* 더 빠른 트랜지션 */
         
-        /* flex items-center justify-center */
         display: flex;
         align-items: center;
         justify-content: center;
       }
 
-      /* hover 시 유리 질감 강화 */
       .btn-common:hover {
         background-color: rgba(255, 255, 255, 0.15);
-        transform: scale(1.05);
+        transform: translateZ(0) scale(1.03);
+      }
+
+      .btn-common:active {
+        transform: translateZ(0) scale(0.98);
       }
     </style>
   </head>
 
   <body class="overflow-hidden">
-    <!-- Main container (portrait tablet optimized) -->
-    <div
-      class="tablet-optimized bg-main flex flex-col items-center justify-center portrait-layout mx-auto"
-    >
-      <!-- Hi furon -->
-      <div class="text-white hi-furon mb-4"> Welcome to this moment </div>
+    <div class="tablet-optimized bg-main portrait-layout mx-auto" style="position: relative;">
+      
+      <!-- index.html과 동일한 위치의 헤더 텍스트 -->
+      <div class="text-white hi-furon">Welcome to this moment</div>
 
-      <!-- Furon Flow -->
-      <div class="text-white furon-flow mb-24 lg:mb-48 text-center leading-tight">
+      <!-- index.html과 동일한 위치의 메인 타이틀 -->
+      <div class="text-white furon-flow">
         Beyond The Flow
       </div>
 
-      <!-- 4 buttons (vertical) -->
+      <!-- 2개 버튼 - 고정 위치 -->
       <div class="flex flex-col space-y-12 button-container">
+        
         <button class="button button-text btn-common">
-          Listening
+          Replay
         </button>
 
-        <button class="button button-text btn-common">
-          Analyzing
-        </button>
-
-        <button class="button button-text btn-common">
-          Answering
-        </button>
-
-        <button class="button button-text btn-common">
-          Arriving
-        </button>
-
-        <button class="button button-text btn-common" onclick="goToWelcome()">
-          처음으로 돌아가기
+        <button class="button button-text btn-common" onclick="goToProcess()">
+          View Flow
         </button>
       </div>
-
-      <!-- Helper text -->
-      <div class="text-white explain-text text-center">버튼을 눌러보세요</div>
+    </div>
 
     <script>
-      // welcome.html로 돌아가는 함수 - 최적화된 페이지 전환
-      function goToWelcome() {
-        console.log("🏠 처음으로 돌아가기 클릭");
+
+
+      // 과정 살펴보기 버튼 - 최적화된 페이지 전환
+      function goToProcess() {
+        console.log("🔍 과정 살펴보기 클릭");
         
         const button = event.target;
         button.style.pointerEvents = 'none'; // 중복 클릭 방지
         
         // 빠른 페이지 전환
         setTimeout(() => {
-          window.location.href = "welcome.html";
-        }, 200); // 애니메이션 완료 후 전환
+          window.location.href = "index.html";
+        }, 500); // 400ms → 200ms로 단축
       }
-    </script>
-    </div>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+
+    </script>
   </body>
 </html>
