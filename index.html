@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Furon Flow</title>
 
+     <!-- 파비콘 404 에러 방지 -->
+    <link rel="icon" href="data:," />
+
     <!-- Google Fonts - Encode Sans Semi Expanded -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -68,27 +71,48 @@
         font-weight: 100;
       }
 
-      /* Buttons */
-      .button {
-        width: 300px; /* x2 at >=1000px */
-        height: 65px; /* x2 at >=1000px */
+      /* 통합된 버튼 스타일 */
+      .btn-glass {
+        /* 크기 */
+        width: 300px;
+        height: 65px;
         
-        /* 유리 질감만 (Saturation 없음) */
+        /* 폰트 */
+        font-size: 26pt;
+        font-weight: 100;
+        
+        /* 유리 효과 */
+        background-color: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(5px) brightness(1.05);
         -webkit-backdrop-filter: blur(5px) brightness(1.05);
         
-        /* 유리 질감 그림자 */
+        /* 디자인 */
+        color: white;
+        border-radius: 9999px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        
+        /* 레이아웃 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        /* 애니메이션 */
+        transition: all 0.3s ease;
+        
+        /* 그림자 */
         box-shadow: 
           0 8px 32px rgba(0, 0, 0, 0.1),
           inset 0 1px 0 rgba(255, 255, 255, 0.4),
           inset 0 -1px 0 rgba(255, 255, 255, 0.1);
       }
 
-      /* 호버 시 왜곡 강화 */
-      .button:hover {
+      /* 호버 효과 */
+      .btn-glass:hover {
+        background-color: rgba(255, 255, 255, 0.15);
         backdrop-filter: blur(20px) saturate(130%) brightness(1.1) hue-rotate(5deg);
         -webkit-backdrop-filter: blur(20px) saturate(130%) brightness(1.1) hue-rotate(5deg);
-
+        transform: scale(1.05);
+        
         box-shadow:
           0 12px 40px rgba(0, 0, 0, 0.15),
           inset 0 2px 0 rgba(255, 255, 255, 0.5),
@@ -97,41 +121,31 @@
 
 
 
-      /* 1200×2000 (2x) */
+      /* 반응형 (1200×2000) */
       @media (min-width: 1000px) {
-        .button {
+        .btn-glass {
           width: 600px;
           height: 130px;
+          font-size: 50pt;
+          font-weight: 100;
         }
 
         .hi-furon {
           font-size: 36pt;
-          font-weight: 100; /* ExtraLight */
         }
 
         .furon-flow {
           font-size: 86pt;
-          font-weight: 500; /* Light */
-          
-        }
-
-        .button-text {
-          font-size: 44pt;
-          font-weight: 200; /* Light */
         }
 
         .explain-text {
-          bottom: 8vh; /* a bit higher on tall screens */
-          left: 50%;
-          transform: translateX(-50%);
+          bottom: 8vh;
           font-size: 36pt;
-          font-weight: 100;
         }
 
         .button-container {
           gap: 3rem;
         }
-
       }
 
       /* 버튼 공통 스타일 - 진짜 유리 질감 */
@@ -163,11 +177,6 @@
         transform: scale(1.05);
       }
 
-      /* "처음으로" 버튼 - btn-common과 동일하되 폰트 두께만 다름 */
-      .btn-home {
-        font-weight: 400 !important; /* btn-common은 그대로, 폰트 두께만 SemiBold */
-      }
-
     </style>
   </head>
 
@@ -177,57 +186,40 @@
       class="tablet-optimized bg-main flex flex-col items-center justify-center portrait-layout mx-auto"
     >
       <!-- Hi furon -->
-      <div class="text-white hi-furon mb-4"> Welcome to this moment </div>
+      <div class="text-white hi-furon mb-0"> Welcome to this moment </div>
 
       <!-- Furon Flow -->
       <div class="text-white furon-flow mb-24 lg:mb-36 text-center leading-tight">
-        Beyond The Flow
+        How We Relate
       </div>
 
-      <!-- 4 buttons (vertical) -->
+      <!-- 5 buttons (vertical) -->
       <div class="flex flex-col space-y-10 button-container">
-        <button class="button button-text btn-common btn-home">
-          처음으로
+        <button class="btn-glass btn-replaying">
+          Replaying
         </button>
 
-        <button class="button button-text btn-common">
+        <button class="btn-glass">
           Listening
         </button>
 
-        <button class="button button-text btn-common">
+        <button class="btn-glass">
           Analyzing
         </button>
 
-        <button class="button button-text btn-common">
+        <button class="btn-glass">
           Answering
         </button>
 
-        <button class="button button-text btn-common">
+        <button class="btn-glass">
           Arriving
         </button>
 
-        <!-- <button class="button button-text btn-common btn-home" onclick="goToWelcome()">
-          돌아가기
-        </button> -->
       </div>
 
       <!-- Helper text -->
       <div class="text-white explain-text text-center">버튼을 눌러보세요</div>
 
-    <!-- <script>
-      // welcome.html로 돌아가는 함수 - 최적화된 페이지 전환
-      function goToWelcome() {
-        console.log("🏠 처음으로 돌아가기 클릭");
-        
-        const button = event.target;
-        button.style.pointerEvents = 'none'; // 중복 클릭 방지
-        
-        // 빠른 페이지 전환
-        setTimeout(() => {
-          window.location.href = "welcome.html";
-        }, 200); // 애니메이션 완료 후 전환
-      }
-    </script> -->
     </div>
 
     <!-- Scripts -->
