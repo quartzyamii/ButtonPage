@@ -19,6 +19,33 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- LG Display Javascript Module -->
+    <!-- 아래 두개 스크립트 태그 삽입 -->
+    <script src="../js/mqttws31.js"></script>
+    <script src="../js/TTMqttContainer_v1.0.0.js"></script>
+
+    <script>
+            // 프로젝트 코드 설정 (팀별로 고유 코드를 사용해야합니다. Ex: "teamA", "teamB", etc.)
+            const projectCode = "sample";
+            
+            // MQTT 연결
+            ttContainer.mqttConnect(projectCode, function() {
+                console.log("MQTT 연결 성공");
+            
+                // 메시지 수신
+                ttContainer.onMessage = function(message) {
+                    console.log(`Message received :: ${message}`);
+                };
+            });
+
+            // 메시지 전송 함수
+            function sendControlMessage(remote) {
+                // 메시지 전송
+                ttContainer.sendMessage(remote);
+            }
+
+    </script>
+
     <style>
       /* Global */
       * {
@@ -195,23 +222,23 @@
 
       <!-- 5 buttons (vertical) -->
       <div class="flex flex-col space-y-10 button-container">
-        <button class="btn-glass btn-replaying">
+        <button class="btn-glass btn-replaying" onclick="sendControlMessage('리모컨 1')" >
           Replaying
         </button>
 
-        <button class="btn-glass">
+        <button class="btn-glass" onclick="sendControlMessage('리모컨 2')">
           Listening
         </button>
 
-        <button class="btn-glass">
+        <button class="btn-glass" onclick="sendControlMessage('리모컨 3')">
           Analyzing
         </button>
 
-        <button class="btn-glass">
+        <button class="btn-glass" onclick="sendControlMessage('리모컨 4')">
           Answering
         </button>
 
-        <button class="btn-glass">
+        <button class="btn-glass" onclick="sendControlMessage('리모컨 5')">
           Arriving
         </button>
 
@@ -222,7 +249,5 @@
 
     </div>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
   </body>
 </html>
