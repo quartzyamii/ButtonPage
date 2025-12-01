@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0px;
+            height: 100vh;
+            position: relative;
+        }
+
+        .wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div>TYPE : DISPLAY</div>
+        <br>
+        <div>현재 입력된 리모컨 : <span id="current-remote">-</span></div>
+    </div>
+</body>
+
+<!-- 아래 두개 스크립트 태그 삽입 -->
+<script src="../js/mqttws31.js"></script>
+<script src="../js/TTMqttContainer_v1.0.0.js"></script>
+
+<script>
+        // 프로젝트 코드 설정 (팀별로 고유 코드를 사용해야합니다. Ex: "teamA", "teamB", etc.)
+        const projectCode = "sample";
+
+        // MQTT 연결
+        ttContainer.mqttConnect(projectCode, function() {
+            console.log("MQTT 연결 성공");
+            
+            // 메시지 전송
+            ttContainer.sendMessage("연결 성공 메시지 전달");
+
+            // 메시지 수신
+            ttContainer.onMessage = function(message) {
+                console.log(`Message received :: ${message}`);
+
+                /*
+                * 사용하실 로직 작성
+                */
+                // 예시: 수신된 메시지를 현재 입력된 리모컨 Text에 업데이트
+                document.getElementById("current-remote").innerText = message;
+            };
+        });
+        
+</script>
+
+</html>
